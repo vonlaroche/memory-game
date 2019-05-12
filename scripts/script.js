@@ -6,7 +6,7 @@ let matches = 0;
 
 
 cards.forEach(card => {
-    card.addEventListener("click", () => flipTheCard(card))
+    card.addEventListener("click", () => flipTheCard(card));
 });
 
 
@@ -27,7 +27,7 @@ flipTheCard = card => {
 
 checkIfMatch = () => {
     if (firstCard.dataset.name === secondCard.dataset.name) {
-        disableCards();
+        resetBoard();
         console.log("match");
         matches++;
         if (matches === 6) {
@@ -41,12 +41,6 @@ checkIfMatch = () => {
         return;
     }
     unflipCards();
-}
-
-disableCards = () => {
-    firstCard.removeEventListener("click", () => flipTheCard(firstCard));
-    secondCard.removeEventListener("click", () => flipTheCard(secondCard));
-    resetBoard();
 }
 
 unflipCards = () => {
