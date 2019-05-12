@@ -13,6 +13,7 @@ cards.forEach(card => {
 flipTheCard = card => {
     if (disableBoard) return;
     if (card === firstCard) return;
+    if (card.classList.contains("flipCard")) return;
 
     card.classList.add("flipCard");
     if (!cardFlipped) {
