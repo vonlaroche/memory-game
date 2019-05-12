@@ -7,6 +7,8 @@
 body{
     height: 100%;
     display: flex;
+    background: rgb(5,232,175);
+    background: linear-gradient(90deg, rgba(5,232,175,1) 0%, rgba(21,251,117,1) 47%, rgba(0,212,255,1) 100%);
 }
 
 .container {
@@ -21,7 +23,9 @@ body{
     position: relative;
     width: 150px;
     height: 150px;
-    margin: 5px;    
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
 }
 
 .back-face,
@@ -31,6 +35,23 @@ body{
   padding: 20px;
   position: absolute;
   border-radius: 5px;
-  background: #1ccc83;
+  background: rgba(190, 28, 169, 0.5);
   object-fit: contain;
+  backface-visibility: hidden;
+  transition: transform 0.2s;
+
+}
+
+.memory-card:active {
+    transform: scale(1.1);
+    
+}
+
+.memory-card.flipCard {
+    transform: rotateY(180deg); 
+  
+}
+
+.front-face{
+    transform: rotateY(180deg); 
 }
